@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Meal Calculator
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item>
+    <ion-label>Height</ion-label>
+    <ion-input placeholder="meters" [(ngModel)]="height"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Weight</ion-label>
+    <ion-input placeholder="kilograms" [(ngModel)]="weight"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="bmiResult">
+    <h1>
+      BMI : {{bmiResult}} <br>
+      Daily Calories (Expected) : {{calorieValue}} <br>
+      Daily Calories (Below Diet) : {{resultCalorieValue}} <br>
+      Total Carbs: {{totalCarbs/4}} (gms)
+    </h1>
+  
+  </ion-item>
+  <ion-button expand="full" color="secondary" (click)="calculateBmi()">Calculate</ion-button>
+  <ion-accordion-group>
+    <ion-accordion *ngFor="let item of finalResultToDisplay">
+      <ion-item slot="header">
+        <ion-label>{{item.foodName}} ----- {{item.optaType}}</ion-label>
+      </ion-item>
+  
+      <ion-list slot="content">
+        <ion-item>
+          <ion-label>Cals:</ion-label>
+          <ion-label>{{item.totalCals}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Per Serving:</ion-label>
+          <ion-label>{{item.perServing}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Sugars:</ion-label>
+          <ion-label>{{item.sugars}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Protien:</ion-label>
+          <ion-label>{{item.protien}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Carbohydrates:</ion-label>
+          <ion-label>{{item.carbs}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-accordion>
+    </ion-accordion-group>
+    
+</ion-content>

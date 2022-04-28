@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Insulin Calculator
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 2</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item>
+    <ion-label>Daily Carbs:</ion-label>
+    <ion-input type="number" placeholder="grams" [(ngModel)]="dailyCarbs"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Blood Sugar:</ion-label>
+    <ion-input type="number" placeholder="mg/dl" [(ngModel)]="bloodSugar"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Cabohydrate Ratio:</ion-label>
+    <ion-input type="number" placeholder="Please input right hand side of ratio" [(ngModel)]="carbsRatio"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Target Blood Sugar</ion-label>
+    <ion-range min="80" max="200" color="secondary" [(ngModel)]="targetSugars">
+      <ion-label slot="start">80</ion-label>
+      <ion-label slot="end">{{targetSugars}}</ion-label>
+    </ion-range>
+  </ion-item>
+
+  <ion-button expand="full" color="secondary" (click)="calculateInsulin()">Calculate</ion-button>
+
+  <ion-item>
+    <h1>{{insulinUnits}}</h1>
+  </ion-item>
+</ion-content>
