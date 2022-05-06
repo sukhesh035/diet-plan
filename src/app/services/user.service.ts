@@ -27,7 +27,14 @@ export class UserService {
 
   addRecord(record) {
     console.log(record)
-    this.currentLoggedInUser['userRecords'].push(record)
+
+    if(this.currentLoggedInUser.userRecords) {
+      this.currentLoggedInUser.userRecords.push(record)
+    } else {
+      this.currentLoggedInUser = {...this.currentLoggedInUser, userRecords: [record]}
+    }
+
+
   }
 
   updateUserRecord(data) {
