@@ -40,11 +40,10 @@ export class LoginPage implements OnInit {
       message = "Login Successful"
       this.userService.currentLoggedInUser = filteredUser;
       setTimeout(() => {
-        this.router.navigateByUrl('home/tabs/tab1')
+        this.router.navigateByUrl('home/tabs/profile');
       }, 2000);
-
     } else {
-      message = "Incorrect Username or password"
+      message = "Incorrect Username or password";
     }
 
     this.showToast(message);

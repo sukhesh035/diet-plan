@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'signup',
-  },
+  }
 ];
 @NgModule({
   imports: [

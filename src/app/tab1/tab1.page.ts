@@ -9,9 +9,10 @@ import csvjson from './data/csvjson.json';
 })
 export class Tab1Page {
 
+  currentUserData: any = {}
   bmiResult: number | any = 0.0;
-  height: number = null;
-  weight: number = null;
+  height: number = 0;
+  weight: number = 0;
   calorieValue: number = 0;
   finalResultToDisplay:any = [];
   totalCarbs: any = 0;
@@ -19,9 +20,16 @@ export class Tab1Page {
 
   constructor(private userService: UserService) { }
 
+  ngOnInit(){
+
+    this.currentUserData = this.userService.currentLoggedInUser
+
+    this.height= this.currentUserData.height
+    this.weight= this.currentUserData.weight
+  }
+
   calculateBmi() {
     this.bmiResult = (this.weight / (this.height * this.height)).toFixed();
-
     this.calculateCalories(this.bmiResult)
   }
 

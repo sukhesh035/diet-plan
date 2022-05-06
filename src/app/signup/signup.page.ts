@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -12,9 +13,19 @@ export class SignupPage implements OnInit {
   username: "";
   password: "";
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private toastController: ToastController) { }
 
   ngOnInit() {
+  }
+
+  async showToast(message) {
+    const toast = await this.toastController.create({
+      color: 'dark',
+      duration: 2000,
+      message: message
+    });
+
+    await toast.present();
   }
 
   signUpUser () {

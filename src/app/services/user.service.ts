@@ -11,7 +11,7 @@ export class UserService {
     userRecords: []
   }];
 
-  currentLoggedInUser: any = {userRecords:[]}
+  currentLoggedInUser: any = { userRecords: [] }
 
   constructor() { }
 
@@ -25,9 +25,13 @@ export class UserService {
     return this.users
   }
 
-  addRecord (record) {
+  addRecord(record) {
     console.log(record)
-    this.currentLoggedInUser.userRecords.push(record)
+    this.currentLoggedInUser['userRecords'].push(record)
+  }
+
+  updateUserRecord(data) {
+    this.currentLoggedInUser = { ...this.currentLoggedInUser, ...data }
   }
 
 }

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Username:</ion-label>
+      <ion-input [(ngModel)]="userData.username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Height:</ion-label>
+      <ion-input [(ngModel)]="userData.height"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Weight:</ion-label>
+      <ion-input [(ngModel)]="userData.weight"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" color="primary" (click)="saveChanges()">Save Changes</ion-button>
+  <ion-button expand="full" color="warning" (click)="logout()">Logout</ion-button>
+</ion-content>
