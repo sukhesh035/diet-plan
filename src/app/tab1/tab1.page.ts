@@ -52,7 +52,7 @@ export class Tab1Page {
     const dinner = calorieValue*0.25;
 
     const breakfastList = this.getFoodResults('Breakfast', breakfast)
-    const lunchList = this.getFoodResults('Main', lunch)
+    const lunchList = this.getFoodResults('Lunch', lunch)
     const drinkList = this.getFoodResults('Dinner', dinner)
 
     this.finalResultToDisplay = breakfastList.concat(lunchList, drinkList);
