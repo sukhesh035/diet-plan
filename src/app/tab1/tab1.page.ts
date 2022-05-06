@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from '../services/user.service';
 import csvjson from './data/csvjson.json';
 
 @Component({
@@ -16,7 +17,7 @@ export class Tab1Page {
   totalCarbs: any = 0;
   resultCalorieValue: any = 0;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   calculateBmi() {
     this.bmiResult = (this.weight / (this.height * this.height)).toFixed();
@@ -58,6 +59,11 @@ export class Tab1Page {
     this.finalResultToDisplay = breakfastList.concat(lunchList, drinkList);
     this.totalCarbs = (this.finalResultToDisplay.reduce((acc, obj) => {return acc + obj.carbs},0)).toFixed(1);
     this.resultCalorieValue = (this.finalResultToDisplay.reduce((acc, obj) => {return acc + obj.totalCals},0)).toFixed(1);
+    this.userService.addRecord({
+      finalResultToDisplay:this.finalResultToDisplay,
+      totalCarbs:this.totalCarbs,
+      resultCalorieValue:this.resultCalorieValue
+    })
   }
 
   getFoodResults (key, ratio) {

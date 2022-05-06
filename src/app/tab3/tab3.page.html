@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Search Records
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,44 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Search Records</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-accordion-group>
+    <ion-accordion *ngFor="let group of redords;let indexOfelement=index;" toggle-icon="arrow-down-circle">
+      <ion-item slot="header">
+        <ion-label>Search Result {{indexOfelement + 1}}</ion-label>
+      </ion-item>
+        <ion-accordion-group slot="content" class="child-food-details">
+          <ion-accordion *ngFor="let item of group.finalResultToDisplay">
+            <ion-item slot="header">
+              <ion-label>{{item.foodName}} ----- {{item.optaType}}</ion-label>
+            </ion-item>
+            <ion-list slot="content">
+              <ion-item>
+                <ion-label>Cals:</ion-label>
+                <ion-label>{{item.totalCals}}</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Per Serving:</ion-label>
+                <ion-label>{{item.perServing}}</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Sugars:</ion-label>
+                <ion-label>{{item.sugars}}</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Protien:</ion-label>
+                <ion-label>{{item.protien}}</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Carbohydrates:</ion-label>
+                <ion-label>{{item.carbs}}</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ion-accordion>
+  </ion-accordion-group>
 </ion-content>

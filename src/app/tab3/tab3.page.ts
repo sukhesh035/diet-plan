@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  redords: any = []
+
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    this.redords = this.userService.currentLoggedInUser.userRecords;
+    console.log(this.redords)
+  }
 
 }

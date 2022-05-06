@@ -32,15 +32,15 @@ export class LoginPage implements OnInit {
     const currentUsers = this.userService.getUsers();
 
     const filteredUser = currentUsers.find(obj => {
-      return obj.username === this.username
+      return (obj.username === this.username && obj.passsword === this.password)
     });
 
     let message = "";
     if (filteredUser) {
-      message = "Login Succsful"
+      message = "Login Successful"
       this.userService.currentLoggedInUser = filteredUser;
       setTimeout(() => {
-        this.router.navigateByUrl('/home')
+        this.router.navigateByUrl('home/tabs/tab1')
       }, 2000);
 
     } else {

@@ -18,5 +18,9 @@
       <ion-input type="password" [(ngModel)]="password"></ion-input>
     </ion-item>
     <ion-button expand="full" (click)="signUpUser()">Sign Up</ion-button>
+    <ion-item>
+      Already a member? &nbsp;
+      <ion-router-link href="login">Login</ion-router-link>
+    </ion-item>
   </ion-list>
 </ion-content>
